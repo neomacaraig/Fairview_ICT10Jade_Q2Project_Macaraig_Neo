@@ -6,8 +6,8 @@ grade_8 = {"Patrick Jane", "Prince Hamilton"}
 grade_9 = {"Fiona Ramirez", "Harvey Specter"}
 grade_10 = {"Caleb Espia", "Nelson Velasco"}
 
-# combine the four grade sets into the master set using the union operator (|)
-master_set = grade_7 | grade_8 | grade_9 | grade_10
+# combine the four grade sets into full_set using the union operator (|)
+full_set = grade_7 | grade_8 | grade_9 | grade_10
 
 def add_member(event):
     # get values from input text box and capitalize first letter of first and last name
@@ -18,10 +18,11 @@ def add_member(event):
         return
 
     full_name = f"{fname} {lname}".strip()
-    master_set.add(full_name)
+    full_set.add(full_name)
 
-    total = len(master_set)
-    members_list = "</li><li>".join(master_set)
+    sorted_members = sorted(full_set)
+    total = len(sorted_members)
+    members_list = "</li><li>".join(sorted_members)
 
     output_text = f"<b>Total Members: {total}</b><br><ul style='text-align: left; margin: 10px 0 0 0; padding-left: 20px;'><li>{members_list}</li></ul>"
 
