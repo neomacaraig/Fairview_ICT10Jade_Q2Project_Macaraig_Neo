@@ -27,13 +27,13 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+            padding: 40px 20px 24px;
         }
         header {
             text-align: center;
             max-width: 740px;
+            margin-top: auto;
             margin-bottom: 30px;
             background-color: #fdfbf7;
             border: 2px solid #b08968;
@@ -157,11 +157,36 @@
         .launch-btn:hover {
             background-color: #936639;
         }
-        footer {
-            padding-top: 28px;
+        footer.site-footer {
+            width: 100%;
+            margin-top: auto;
+            padding: 24px 20px 8px;
             text-align: center;
             color: #e6ccb2;
             font-size: 13.5px;
+            border-top: 1px solid rgba(230, 204, 178, 0.25);
+        }
+        .footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+        .footer-nav a {
+            color: #fdfbf7;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+        .footer-nav a:hover {
+            color: #ddb892;
+            text-decoration: underline;
+        }
+        .footer-meta {
+            color: #cbb094;
+            font-size: 12.5px;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -218,8 +243,17 @@
         </div>
     </main>
 
-    <footer>
-        <p>Neo Macaraig, 10-Jade, Project</p>
+    <footer class="site-footer">
+        <nav class="footer-nav" aria-label="Project pages">
+            <a href="index.html">Showcase</a>
+            <a href="drill2.html">Drill 2</a>
+            <a href="sw1.html">Seatwork 1</a>
+            <a href="skillstest.html">Skills Test</a>
+            <a href="creator.html">About Me</a>
+        </nav>
+        <p class="footer-meta">
+            Neo Macaraig &bull; 10-Jade &bull; 2nd Quarter ICT Showcase &bull; Submitted to Renn Santos
+        </p>
     </footer>
 
     <script type="py" src="./portfolio.py"></script>
