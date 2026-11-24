@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet the Creator</title>
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- pyscript -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #121212;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/025/361/681/non_2x/math-thin-line-dark-pattern-mathematics-education-seamless-background-vector.jpg');
+            background-repeat: repeat;
+            background-size: 400px;
+            background-blend-mode: overlay;
+            color: #2c2421;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 55px 20px 35px;
+        }
+        .back-link {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #fdfbf7;
+            color: #7f4f24;
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #b08968;
+            font-size: 13px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        .back-link:hover {
+            background-color: #7f4f24;
+            color: #f5f0eb;
+            border-color: #7f4f24;
+        }
+        .profile-card {
+            background-color: #fdfbf7;
+            border: 2px solid #b08968;
+            border-radius: 12px;
+            padding: 34px;
+            max-width: 780px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e6ccb2;
+        }
+        .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 12px;
+            background-color: #7f4f24;
+            color: #f5f0eb;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 28px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .text {
+            display: inline-block;
+            background: #f5f0eb;
+            color: #7f4f24;
+            border: 1px solid #b08968;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 30px;
+            color: #7f4f24;
+        }
+        .subtitle {
+            color: #5c4033;
+            font-size: 14.5px;
+            margin-top: 3px;
+            font-weight: 600;
+        }
+        .bio {
+            color: #2c2421;
+            font-size: 15.5px;
+            line-height: 1.65;
+            margin-bottom: 22px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+        .info-box {
+            background: #ffffff;
+            border: 1px solid #b08968;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .info-box span {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #7f4f24;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .info-box p {
+            color: #2c2421;
+            font-size: 14px;
+            line-height: 1.45;
+        }
+        .fact-section {
+            background: #f5f0eb;
+            border: 2px solid #7f4f24;
+            border-radius: 10px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .fact-text {
+            font-size: 14.5px;
+            color: #5c4033;
+            font-weight: 600;
+            flex: 1;
+            min-width: 220px;
+        }
+        .fact-btn {
+            background-color: #7f4f24;
+            color: #f5f0eb;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .fact-btn:hover {
+            background-color: #936639;
+        }
+        footer {
+            margin-top: auto;
+            padding-top: 35px;
+            text-align: center;
+            color: #e6ccb2;
+            font-size: 13.5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+
+    <main class="profile-card">
+        <div class="profile-header">
+            <div class="avatar">NM</div>
+            <div>
+                <div class="text">MEET THE CREATOR</div>
+                <h1>Neo Macaraig</h1>
+                <p class="subtitle">Grade 10 &bull; Section 10-Jade &bull; Q2 ICT</p>
+            </div>
+        </div>
+
+        <p class="bio">
+            Hi! I'm <strong>Neo Macaraig</strong> from <strong>10-Jade</strong>. This second-quarter portfolio brings together my pyscript web projects, combining HTML, CSS, and Python to build interactive tools for data structures like lists, sets, and  dictionaries. I like listening to music, my hobbies are playing Magic: The Gathering.
+        </p>
+
+        <div class="info-grid">
+            <div class="info-box">
+                <span>Section & Subject</span>
+                <p>10-Jade</p>
+            </div>
+            <div class="info-box">
+                <span>Core Focus</span>
+                <p>Python sets, lists, nested dictionaries, and DOM updates</p>
+            </div>
+            <div class="info-box">
+                <span>Submitted To</span>
+                <p>Renn Santos</p>
+            </div>
+        </div>
+
+        <div class="fact-section">
+            <p class="fact-text" id="creatorFact">Click the button to cycle through a quick note about this Q2 project.</p>
+            <button class="fact-btn" id="nextFactBtn">Next Project Note</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>Created by Neo Macaraig, 10-Jade Q2 ICT Portfolio</p>
+    </footer>
+
+    <script type="py" src="./creator.py"></script>
+</body>
+</html>

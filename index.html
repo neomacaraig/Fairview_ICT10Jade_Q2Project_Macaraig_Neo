@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2 ICT Project</title>
+    <!-- fonts i used -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #121212;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/025/361/681/non_2x/math-thin-line-dark-pattern-mathematics-education-seamless-background-vector.jpg');
+            background-repeat: repeat;
+            background-size: 400px;
+            background-blend-mode: overlay;
+            color: #2c2421;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            max-width: 740px;
+            margin-bottom: 30px;
+            background-color: #fdfbf7;
+            border: 2px solid #b08968;
+            border-radius: 14px;
+            padding: 24px 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+        .badge {
+            display: inline-block;
+            background: #f5f0eb;
+            color: #7f4f24;
+            border: 1px solid #b08968;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            margin-bottom: 10px;
+        }
+        header h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 34px;
+            color: #7f4f24;
+            margin-bottom: 8px;
+        }
+        header p {
+            color: #5c4033;
+            font-size: 15.5px;
+            line-height: 1.5;
+        }
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .filter-btn {
+            background: #fdfbf7;
+            color: #5c4033;
+            border: 2px solid #b08968;
+            padding: 8px 18px;
+            border-radius: 8px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: #7f4f24;
+            color: #f5f0eb;
+            border-color: #7f4f24;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 1340px;
+        }
+        @media (max-width: 1120px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 640px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .card {
+            background-color: #fdfbf7;
+            border: 2px solid #b08968;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #7f4f24;
+        }
+        .card-two {
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #7f4f24;
+            margin-bottom: 8px;
+            letter-spacing: 0.7px;
+        }
+        .card h2 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 20px;
+            color: #2c2421;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 14.5px;
+            color: #5c4033;
+            line-height: 1.5;
+            margin-bottom: 22px;
+        }
+        .launch-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #7f4f24;
+            color: #f5f0eb;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 11px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+        .launch-btn:hover {
+            background-color: #936639;
+        }
+        footer {
+            padding-top: 28px;
+            text-align: center;
+            color: #e6ccb2;
+            font-size: 13.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="badge">2ND QUARTER PORTFOLIO</div>
+        <h1>ICT Webpages Showcase</h1>
+        <p>Second quarter works made by <strong>Neo Macaraig (10-Jade)</strong>. Submitted to <strong>Renn Santos</strong>.</p>
+    </header>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" id="btn-all">All Pages (4)</button>
+        <button class="filter-btn" id="btn-sets">Math</button>
+        <button class="filter-btn" id="btn-dicts">Science</button>
+        <button class="filter-btn" id="btn-about">About Me</button>
+    </div>
+
+    <main class="projects-grid" id="projectGrid">
+        <div class="card" id="card-drill2">
+            <div>
+                <div class="card-two">Drill 2</div>
+                <h2>Math Club List</h2>
+                <p>Puts grade-level groups together and lets you add new names to the list.</p>
+            </div>
+            <a href="drill2.html" class="launch-btn">Open Page &rarr;</a>
+        </div>
+
+        <div class="card" id="card-sw1">
+            <div>
+                <div class="card-two">Seatwork 1</div>
+                <h2>Name Checker</h2>
+                <p>Type a first and last name to check if they are in the Math Club.</p>
+            </div>
+            <a href="sw1.html" class="launch-btn">Open Page &rarr;</a>
+        </div>
+
+        <div class="card" id="card-skillstest">
+            <div>
+                <div class="card-two">Skills Test</div>
+                <h2>Non-Metals Information Finder</h2>
+                <p>Type an element symbol to see its name, atomic number, and atomic mass.</p>
+            </div>
+            <a href="skillstest.html" class="launch-btn">Open Page &rarr;</a>
+        </div>
+
+        <div class="card" id="card-creator">
+            <div>
+                <div class="card-two">About Me</div>
+                <h2>Meet the Creator</h2>
+                <p>A quick page about who made this website and simple notes about each page.</p>
+            </div>
+            <a href="creator.html" class="launch-btn">Open Page &rarr;</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Neo Macaraig, 10-Jade</p>
+    </footer>
+
+    <script type="py" src="./portfolio.py"></script>
+</body>
+</html>

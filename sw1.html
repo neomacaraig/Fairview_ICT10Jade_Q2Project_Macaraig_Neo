@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" /> 
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+    <title>Q2 SW1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            background-color: #121212; 
+            background-image: url('https://static.vecteezy.com/system/resources/previews/025/361/681/non_2x/math-thin-line-dark-pattern-mathematics-education-seamless-background-vector.jpg');
+            background-repeat: repeat;
+            background-size: 400px;
+            background-blend-mode: overlay;
+            margin: 0;
+            padding: 50px 20px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #2c2421;
+        }
+        .back-link {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            background-color: #fdfbf7;
+            color: #7f4f24;
+            padding: 8px 14px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #b08968;
+            font-size: 13px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+        .back-link:hover {
+            background-color: #7f4f24;
+            color: #f5f0eb;
+            border-color: #7f4f24;
+        }
+        .split-shell {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            max-width: 780px;
+            width: 100%;
+            background-color: #fdfbf7;
+            border: 2px solid #b08968;
+            border-radius: 14px;
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.65);
+            overflow: hidden;
+        }
+        .form-pane {
+            padding: 32px;
+            border-right: 2px solid #e6ccb2;
+            text-align: left;
+        }
+        .status-pane {
+            padding: 32px;
+            background-color: #f5f0eb;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 18px;
+        }
+        .pane-label {
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.9px;
+            color: #936639;
+            margin-bottom: 6px;
+        }
+        h1 { 
+            font-family: 'Fredoka', sans-serif;
+            color: #7f4f24; 
+            font-size: 30px;
+            margin: 0 0 6px 0;
+        }
+        .lead {
+            color: #5c4033;
+            font-size: 14px;
+            margin: 0 0 22px 0;
+            line-height: 1.45;
+        }
+        .field-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #5c4033;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .form-control { 
+            display: block; 
+            width: 100%;
+            padding: 10px 12px; 
+            border-radius: 6px; 
+            border: 1px solid #b08968; 
+            background: #ffffff; 
+            color: #2c2421; 
+            font-size: 14.5px;
+            font-family: 'Quicksand', sans-serif;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: #7f4f24;
+            box-shadow: 0 0 0 2px rgba(127, 79, 36, 0.18);
+        }
+        .btn { 
+            width: 100%;
+            padding: 11px 24px; 
+            background-color: #7f4f24; 
+            color: #f5f0eb; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600; 
+            font-size: 15px;
+            transition: background-color 0.2s ease;
+        }
+        .btn:hover {
+            background-color: #936639;
+        }
+        #output1 { 
+            flex: 1;
+            min-height: 135px; 
+            border: 2px solid #7f4f24; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); 
+            border-radius: 10px; 
+            font-size: 15px; 
+            font-weight: 600;
+            padding: 18px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center;
+            background: #ffffff; 
+            color: #2c2421; 
+            line-height: 1.5;
+        }
+        .helper-note {
+            font-size: 12.5px;
+            color: #5c4033;
+            border-top: 1px solid #d5bdaf;
+            padding-top: 12px;
+            line-height: 1.45;
+        }
+        @media (max-width: 680px) {
+            .split-shell {
+                grid-template-columns: 1fr;
+            }
+            .form-pane {
+                border-right: none;
+                border-bottom: 2px solid #e6ccb2;
+            }
+            .field-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+
+    <div class="split-shell">
+        <div class="form-pane">
+            <div class="pane-label">Seatwork 1 &bull; Member Lookup</div>
+            <h1>math club</h1>
+            <p class="lead">Enter a student's first and last name to check if they are on the club roster.</p>
+            <form action="">
+                <div class="field-row">
+                    <div>
+                        <label for="fname">First Name</label>
+                        <input type="text" id="fname" class="form-control" placeholder="First Name" required>
+                    </div>
+                    <div>
+                        <label for="lname">Last Name</label>
+                        <input type="text" id="lname" class="form-control" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <button type="button" class="btn" py-click="checkMember">enter</button>
+            </form>
+        </div>
+
+        <div class="status-pane">
+            <div>
+                <div class="pane-label">Verification Result</div>
+                <div id="output1">Enter your name and click enter.</div>
+            </div>
+            <div class="helper-note">
+                Names are trimmed and formatted in title case before checking the member list.
+            </div>
+        </div>
+    </div>
+    
+    <script type="py" src="sw1.py"></script>
+</body>
+</html>
